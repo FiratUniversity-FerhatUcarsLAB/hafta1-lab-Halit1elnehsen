@@ -1,4 +1,40 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541617
+AD-SOYAD: HALİD ELNEHSEN 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:ALGORİTMA Lego_Sekil_Yap
+
+Girdi:
+    - Hedef_Sekil (katmanlara ayrılmış plan)
+    - Parça_Listesi (renk, boyut, adet bilgisi)
+
+Çıktı:
+    - Başarıyla tamamlanmış şekil veya "Parça Eksik" uyarısı
+
+ADIMLAR:
+
+1. Kontrol Et: Hedef_Sekil için gerekli parçalar Parça_Listesi içinde mevcut mu?
+    Eğer eksik parça varsa:
+        "Parça Eksik! Şekil tamamlanamaz." yaz
+        ALGORİTMA SONLANDIR
+
+2. Katman = 1’den Hedef_Sekil.Toplam_Katman’a kadar tekrar et:
+    
+    2.1 Katmandaki tüm blokları sırayla al
+    
+    2.2 Döngü her Blok için:
+        
+        - Gerekli_Parça = Blok’un tanımı (renk, boyut)
+        
+        Eğer Gerekli_Parça Parça_Listesi içinde varsa:
+            - Parçayı yerleştir
+            - Parça_Listesi’nden çıkar
+        Değilse:
+            - "Parça Eksik! Katman {Katman} tamamlanamadı." yaz
+            - ALGORİTMA SONLANDIR
+    
+    2.3 Katman tamamlandı mesajı ver: "Katman {Katman} tamamlandı."
+
+3. Eğer tüm katmanlar yerleştirildiyse:
+    "Şekil başarıyla tamamlandı!" yaz
+
+SON
