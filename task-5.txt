@@ -1,4 +1,50 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: HALİD 
+AD-SOYAD: ELNEHSEN 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+ALGORİTMA Kitap_Okuma_Planı
+
+Girdi:
+    - Kitap_Listesi (her kitap için: isim, toplam_sayfa, önem_derecesi)
+    - Günlük_Okuma_Sayfa
+    - Toplam_Gün (kullanıcının ayırabileceği gün sayısı)
+
+Çıktı:
+    - Günlük kitap bazlı okuma planı
+
+ADIMLAR:
+
+1. Kitap_Listesi'ni oku
+
+2. Her kitap için öncelik_puanı hesapla:
+       öncelik_puanı = önem_derecesi * (toplam_sayfa / 100)
+   // daha önemli ve daha hacimli kitaplara daha fazla öncelik verilir
+
+3. Kitap_Listesi'ni öncelik_puanına göre azalan sırala
+
+4. Gün = 1’den Toplam_Gün’e kadar tekrar et:
+    
+    4.1 Kalan_sayfa = Günlük_Okuma_Sayfa
+    
+    4.2 Kitap_Listesi içinde sırayla dön:
+        
+        Eğer Kalan_sayfa > 0 ve kitapta okunmamış_sayfa > 0 ise:
+            - Okunacak_sayfa = min(Kalan_sayfa, 20, kitap.okunmamış_sayfa)
+              // bir kitaptan günde max 20 sayfa koy
+            - Kitap.okunmuş_sayfa += Okunacak_sayfa
+            - Kalan_sayfa -= Okunacak_sayfa
+            - Plan[ Gün ]’e (Kitap_Adi, Okunacak_sayfa) ekle
+    
+    4.3 Eğer Kalan_sayfa > 0 ve hala boş süre varsa:
+        - “Serbest okuma” olarak kaydet
+
+5. Eğer bir kitap tamamen bitmişse:
+       - “Kitap X tamamlandı!” mesajı ver
+
+6. Tüm kitaplar bitmeden günler biterse:
+       - “Plan yetişmedi, şu kitap(lar) kaldı: …” mesajı ver
+
+7. Tüm kitaplar biterse:
+       - “Tebrikler, tüm kitaplar tamamlandı!” yaz
+
+SON
