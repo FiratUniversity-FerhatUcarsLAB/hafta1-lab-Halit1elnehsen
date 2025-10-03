@@ -1,4 +1,5 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:466&
+AD-SOYAD:-&+-_
+
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
