@@ -1,4 +1,33 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541
+AD-SOYAD: HALİD ELNEHSEN 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+ALGORİTMA Rehber_Alfabetik_Sirala
+
+Girdi:
+    Rehber_Listesi (isimlerden oluşan bir dizi)
+
+Çıktı:
+    Alfabetik olarak sıralanmış Rehber_Listesi
+
+ADIMLAR:
+
+1. n = Rehber_Listesi'nin uzunluğunu al
+
+2. Döngü i = 0’dan (n-1)’e kadar:
+    
+    2.1 Degisim_Yapildi = FALSE   // Her tur başında kontrol
+    
+    2.2 Döngü j = 0’dan (n-2-i)’ye kadar:
+        
+        Eğer Rehber_Listesi[j] > Rehber_Listesi[j+1] ise:
+            // Alfabetik sıraya göre yanlış yerleşmiş
+            - Rehber_Listesi[j] ile Rehber_Listesi[j+1] yer değiştir
+            - Degisim_Yapildi = TRUE
+    
+    2.3 Eğer Degisim_Yapildi == FALSE ise:
+        Döngüden çık   // Liste zaten sıralı
+
+3. Rehber_Listesi'ni ekrana yaz
+
+SON
