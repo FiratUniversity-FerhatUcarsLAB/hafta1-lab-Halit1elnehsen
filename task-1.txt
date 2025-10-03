@@ -1,5 +1,48 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541617
+AD-SOYAD:HALİD ELNEHSEN 
 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:ALGORİTMA Sınav_Çalışma_Planı
+
+Girdi:
+    - Ders_Listesi (her ders için: isim, önem derecesi, zorluk seviyesi, sınava kalan gün)
+    - Günlük_Çalışma_Saati
+    - Toplam_Gün (sınava kalan toplam gün sayısı)
+
+Çıktı:
+    - Günlük ders bazlı çalışma planı
+
+ADIMLAR:
+
+1. Ders_Listesi'ni oku.
+2. Her ders için öncelik_puanı hesapla:
+       öncelik_puanı = (önem * 2) + (zorluk * 1.5) + (1 / kalan_gün)
+3. Ders_Listesi'ni öncelik_puanına göre azalan sırala.
+
+4. Gün = 1’den Toplam_Gün’e kadar tekrar et:
+    
+    4.1 Kalan saat = Günlük_Çalışma_Saati
+    
+    4.2 Ders_Listesi içindeki her ders için:
+        
+        EĞER Kalan saat > 0 ise:
+            - Ayrılacak_saat = (öncelik_puanı / toplam_öncelik) * Günlük_Çalışma_Saati
+            - Eğer Ayrılacak_saat > Kalan saat ise:
+                  Ayrılacak_saat = Kalan saat
+            - Derse Ayrılacak_saat ekle
+            - Kalan saat = Kalan saat - Ayrılacak_saat
+        DEĞİLSE:
+            Döngüden çık
+    
+    4.3 Plan tablosuna (Gün, Ders, Ayrılacak_saat) kaydet.
+
+5. Her 3 günde bir:
+       - Önceki günlerde tekrar edilmeyen ders konularını belirle
+       - Bu konular için "Tekrar Zamanı" ekle
+
+6. Eğer herhangi bir ders için kalan gün < 2 ve henüz çalışılmadıysa:
+       - O derse acil çalışma slotu ekle (minimum 1 saat)
+
+7. Planı çıktı olarak göster.
+
+SON
