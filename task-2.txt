@@ -1,4 +1,68 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541617
+AD-SOYAD: HALİD ELNEHSEN 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+ALGORİTMA Sudoku_Coz
+
+Girdi:
+    9x9 Sudoku_Tablo (boş hücreler 0 ile gösterilir)
+
+Çıktı:
+    Çözülmüş Sudoku_Tablo veya "Çözüm Yok"
+
+ADIMLAR:
+
+1. FONKSİYON Boş_Hücre_Bul(Tablo):
+       Döngü i = 0'dan 8'e kadar:
+           Döngü j = 0'dan 8'e kadar:
+               Eğer Tablo[i][j] == 0 ise:
+                   Dön (i, j)   // Boş hücre bulundu
+       Dön NULL  // Hiç boş hücre yok, tablo tamamlandı
+
+2. FONKSİYON Geçerli_Mi(Tablo, satır, sütun, sayı):
+       // Satır kontrolü
+       Döngü k = 0'dan 8'e kadar:
+           Eğer Tablo[satır][k] == sayı ise:
+               Dön FALSE
+       
+       // Sütun kontrolü
+       Döngü k = 0'dan 8'e kadar:
+           Eğer Tablo[k][sütun] == sayı ise:
+               Dön FALSE
+       
+       // 3x3 kutu kontrolü
+       BaşlaSatır = (satır // 3) * 3
+       BaşlaSütun = (sütun // 3) * 3
+       Döngü i = 0'dan 2'ye kadar:
+           Döngü j = 0'dan 2'ye kadar:
+               Eğer Tablo[BaşlaSatır + i][BaşlaSütun + j] == sayı ise:
+                   Dön FALSE
+       
+       Dön TRUE
+
+3. FONKSİYON Coz(Tablo):
+       boş = Boş_Hücre_Bul(Tablo)
+       Eğer boş == NULL ise:
+           Dön TRUE   // Çözüm bulundu
+       
+       (satır, sütun) = boş
+       
+       Döngü sayı = 1’den 9’a kadar:
+           Eğer Geçerli_Mi(Tablo, satır, sütun, sayı) ise:
+               Tablo[satır][sütun] = sayı
+               
+               Eğer Coz(Tablo) == TRUE ise:
+                   Dön TRUE
+               
+               // Geri dönüş (backtrack)
+               Tablo[satır][sütun] = 0
+       
+       Dön FALSE   // Hiçbir sayı uymadı
+
+4. ANA PROGRAM:
+       Eğer Coz(Sudoku_Tablo) == TRUE ise:
+           Sudoku_Tablo'yu ekrana yaz
+       Değilse:
+           "Çözüm yok" yaz
+
+SON
